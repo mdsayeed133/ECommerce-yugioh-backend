@@ -32,10 +32,10 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "country_code")
-    private String country;
+    @Column(name = "country_id")
+    private Country country;
 
-    public User(String username, String password, String firstName, String lastName, String country) {
+    public User(String username, String password, String firstName, String lastName, Country country) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;

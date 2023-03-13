@@ -1,7 +1,7 @@
 package com.ecommerce.controllers;
 
-import com.ecommerce.model.Product;
-import com.ecommerce.services.ProductService;
+import com.ecommerce.model.Card;
+import com.ecommerce.services.CardsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/cards")
 @CrossOrigin
-public class ProductController {
+public class CardsController {
 
-    private final ProductService productService;
+    private final CardsService cardsService;
 
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    public CardsController(CardsService cardsService) {
+        this.cardsService = cardsService;
     }
 
     @GetMapping()
-    public ResponseEntity<List<Product>> getAllProducts(){
-        List<Product> products= productService.getAllProducts();
-        return ResponseEntity.ok(products);
+    public ResponseEntity<List<Card>> getAllProducts(){
+        List<Card> cards = cardsService.getAllCards();
+        return ResponseEntity.ok(cards);
     }
 }

@@ -7,18 +7,18 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "products")
+@Table(name = "cards")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class Card {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id")
-    private Integer productId;
+    @Column(name = "id")
+    private Integer id;
 
     @Column(name = "product_name", nullable = false)
     private String productName;
@@ -32,12 +32,16 @@ public class Product {
     @Column(name = "image_url")
     private String image;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "type_id")
+    private CardType type;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Product product = (Product) o;
-        return getProductId() != null && Objects.equals(getProductId(), product.getProductId());
+        Card card = (Card) o;
+        return getId() != null && Objects.equals(getId(), card.getId());
     }
 
     @Override

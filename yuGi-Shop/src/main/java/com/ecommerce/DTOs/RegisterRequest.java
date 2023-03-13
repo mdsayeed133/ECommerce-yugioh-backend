@@ -1,6 +1,5 @@
 package com.ecommerce.DTOs;
 
-import javax.persistence.Column;
 
 public class RegisterRequest {
 
@@ -8,14 +7,14 @@ public class RegisterRequest {
     private String password;
     private String firstName;
     private String lastName;
-    private String country;
+    private int countryId;
 
-    public RegisterRequest(String username, String password, String firstName, String lastName, String country) {
+    public RegisterRequest(String username, String password, String firstName, String lastName, int countryId) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.country = country;
+        this.countryId = countryId;
     }
 
     public String getUsername() {
@@ -50,11 +49,11 @@ public class RegisterRequest {
         this.lastName = lastName;
     }
 
-    public String getCountry() {
-        return country;
+    public int getCountryId() {
+        return countryId;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
     }
 }

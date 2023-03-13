@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public User register(RegisterRequest registerRequest){
-        User newUser= new User(registerRequest.getUsername(),registerRequest.getPassword(),registerRequest.getFirstName(), registerRequest.getLastName(), registerRequest.getCountry());
+        User newUser= new User(registerRequest.getUsername(),registerRequest.getPassword(),registerRequest.getFirstName(), registerRequest.getLastName(), null);
         return usersRepository.save(newUser);
     }
 
