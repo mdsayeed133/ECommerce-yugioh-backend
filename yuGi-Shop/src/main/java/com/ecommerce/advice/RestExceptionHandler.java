@@ -1,5 +1,6 @@
 package com.ecommerce.advice;
 
+import com.ecommerce.exceptions.CountryException;
 import com.ecommerce.exceptions.LoginException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,14 @@ public class RestExceptionHandler {
         String errorMessage = "Username or Password is invalid";
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorMessage);
+    }
+
+    @ExceptionHandler(CountryException.class)
+    public ResponseEntity<Object> handleCountryException(HttpServletRequest request, CountryException countryException) {
+
+        String errorMessage = "Invalid Country";
+
+        return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(errorMessage);
     }
 
     @ExceptionHandler(Exception.class)
