@@ -32,7 +32,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "country_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "country")
     private Country country;
 
     public User(String username, String password, String firstName, String lastName, Country country) {

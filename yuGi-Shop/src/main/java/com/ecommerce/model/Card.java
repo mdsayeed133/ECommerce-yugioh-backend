@@ -33,7 +33,7 @@ public class Card {
     private String image;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "type_id")
+    @JoinColumn(name = "type")
     private CardType type;
 
     @Override
