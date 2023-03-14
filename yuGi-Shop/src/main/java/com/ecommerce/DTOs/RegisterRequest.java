@@ -9,6 +9,8 @@ public class RegisterRequest {
     private String lastName;
     private int countryId;
 
+    public RegisterRequest() {}
+
     public RegisterRequest(String username, String password, String firstName, String lastName, int countryId) {
         this.username = username;
         this.password = password;

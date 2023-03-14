@@ -24,7 +24,7 @@ public class CardsController {
     }
 
     @GetMapping()
-    public ResponseEntity<List<Card>> getAllProducts(){
+    public ResponseEntity<List<Card>> getAllCards(){
         List<Card> cards = cardsService.getAllCards();
         return ResponseEntity.ok(cards);
     }

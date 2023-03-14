@@ -20,8 +20,8 @@ public class Card {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "product_name", nullable = false)
-    private String productName;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "description")
     private String description;
