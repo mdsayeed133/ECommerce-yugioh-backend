@@ -20,6 +20,11 @@ public class CardsService {
         this.cardsRepository = cardsRepository;
     }
 
+    /**
+     * This is used to get all card to be displayed in the front end
+     *
+     * @return All the cards in the database
+     */
     public List<Card> getAllCards() {
         return cardsRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }

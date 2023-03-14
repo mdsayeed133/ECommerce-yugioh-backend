@@ -23,6 +23,9 @@ public class CardsController {
         this.cardsService = cardsService;
     }
 
+    /**
+     * get all card to be displayed in the front end
+     */
     @GetMapping()
     public ResponseEntity<List<Card>> getAllCards(){
         List<Card> cards = cardsService.getAllCards();

@@ -23,7 +23,7 @@ public class Card {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description")
+    @Column(columnDefinition = "TEXT", name = "description")
     private String description;
 
     @Column(name = "price", nullable = false)

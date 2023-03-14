@@ -26,13 +26,25 @@ public class UserService {
         this.usersRepository = usersRepository;
         this.countryRepository = countryRepository;
     }
-
+    /**
+     * This is called by the user controller to validate user trying to log in. if credentials are invalid then it throws LoginException
+     *
+     * @param username from LoginRequest
+     * @param password from LoginRequest
+     * @return The logged-in User
+     */
     public User login(String username, String password) throws LoginException {
         Optional<User> user= usersRepository.findByUsernameIgnoreCaseAndPassword(username,password);
         if(!user.isPresent()) throw new LoginException();
         return user.get();
     }
 
+    /**
+     * This is called by the user controller add new user to database. Also, checks if user's inputted country is valid
+     *
+     * @param registerRequest A DTO
+     * @return The new created User
+     */
     public User register(RegisterRequest registerRequest) throws CountryException{
         Optional<Country> country= countryRepository.findById(registerRequest.getCountryId());
         if(!country.isPresent())throw new CountryException();

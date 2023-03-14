@@ -20,12 +20,21 @@ public class UserController {
         this.userService = userService;
     }
 
+    /**
+     * Logins User
+     *
+     * @param loginRequest
+     */
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody LoginRequest loginRequest){
         User user = userService.login(loginRequest.getUsername(), loginRequest.getPassword());
         return  ResponseEntity.ok(user);
     }
-
+    /**
+     * Adds new user to database
+     *
+     * @param registerRequest
+     */
     @PostMapping("/register")
     public ResponseEntity<User> register(@RequestBody RegisterRequest registerRequest){
         User user= userService.register(registerRequest);
